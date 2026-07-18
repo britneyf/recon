@@ -1,7 +1,8 @@
-"""Reconciliation Guardian — a faithfulness auditor for ambient clinical notes.
+"""Reconciliation Guardian — conversation-to-chart reconciliation for ambient notes.
 
 Cross-references the visit transcript, the generated note, and the structured
-FHIR chart, and surfaces only the discrepancies a clinician would act on.
+FHIR chart, and surfaces only the discrepancies worth clinician review. It
+proposes clarification; it never resolves a conflict or writes to the chart.
 
 Pipeline: EXTRACT (Claude) + parse FHIR -> RECONCILE (code) -> JUDGE (Claude).
 """

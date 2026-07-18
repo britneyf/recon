@@ -1,9 +1,10 @@
 # Reconciliation Guardian
 
-A faithfulness auditor for ambient clinical notes. It cross-references the visit
-**transcript**, the generated **note**, and the structured **FHIR chart**, and
-surfaces *only* the discrepancies a clinician would act on — optimizing for
-**precision, not recall** (a guardian that cries wolf gets muted in a week).
+Conversation-to-chart reconciliation for ambient clinical notes. It
+cross-references the visit **transcript**, the generated **note**, and the
+structured **FHIR chart**, and surfaces *only* the discrepancies worth clinician
+review — optimizing for **precision, not recall** (a reviewer that cries wolf
+gets muted in a week). It proposes clarification; the clinician decides.
 
 ## Architecture (proposer → verifier)
 
