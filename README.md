@@ -1,12 +1,12 @@
-# recon
+# Recon
 
 ### Conversation-to-chart reconciliation for ambient clinical AI
 
-Ambient scribes generate clinical documentation from the patient–clinician conversation. **recon** checks whether the transcript, generated note, after-visit summary, and structured FHIR record still tell the same clinical story.
+Ambient scribes generate clinical documentation from the patient–clinician conversation. **Recon** checks whether the transcript, generated note, after-visit summary, and structured FHIR record still tell the same clinical story.
 
 It identifies a small set of potentially actionable discrepancies and proposes clarification for clinician review. It does not diagnose, modify the chart, or resolve conflicts autonomously.
 
-> **Ambient AI writes the note. recon checks what may need clarification before the encounter is closed.**
+> **Ambient AI writes the note. Recon checks what may need clarification before the encounter is closed.**
 
 Built for **The Future of Agentic AI in Healthcare Hackathon** using Abridge's synthetic ambient-FHIR dataset.
 
@@ -24,7 +24,7 @@ Built for **The Future of Agentic AI in Healthcare Hackathon** using Abridge's s
 
 > Current medications include lisinopril.
 
-**recon surfaces**
+**Recon surfaces**
 
 > **Possible stale medication record**
 > The patient reports discontinuing lisinopril, but it remains active in the structured medication list and generated note.
@@ -34,11 +34,11 @@ Built for **The Future of Agentic AI in Healthcare Hackathon** using Abridge's s
 
 The clinician decides whether any update is appropriate.
 
-## Why recon
+## Why Recon
 
 Ambient documentation systems are optimized to capture and summarize the current encounter. They may not independently reconcile every statement against the patient's longitudinal record or verify consistency across downstream artifacts.
 
-recon adds a review layer between ambient documentation and final chart sign-off:
+Recon adds a review layer between ambient documentation and final chart sign-off:
 
 * compares patient statements with existing chart data;
 * detects unsupported or omitted clinical claims;
@@ -63,7 +63,7 @@ recon adds a review layer between ambient documentation and final chart sign-off
 
 **Severity-ranked, deduplicated queue.** Findings describing the same underlying problem are merged and ordered so the most clinically significant item is read first.
 
-**Suggested clarification, not correction.** Output is phrased as a question for the clinician to ask, because recon cannot know whether the patient or the chart is right.
+**Suggested clarification, not correction.** Output is phrased as a question for the clinician to ask, because Recon cannot know whether the patient or the chart is right.
 
 **Inspectable pipeline.** Every run emits a stage-by-stage trace — ledger sizes, candidates proposed, findings judged material, anchors dropped by the citation gate — so the reasoning is auditable rather than opaque.
 
@@ -83,7 +83,7 @@ recon adds a review layer between ambient documentation and final chart sign-off
 | D    | **Uncaptured order**             | A medication or laboratory order discussed during the encounter has no matching structured resource. |
 | E    | **After-visit-summary drift**    | The AVS contains a plan item that is not supported by the note or conversation.                      |
 
-recon deliberately suppresses:
+Recon deliberately suppresses:
 
 * equivalent paraphrases;
 * recognized medication synonyms;
@@ -178,7 +178,7 @@ A textual difference is not automatically treated as a clinical discrepancy. The
 
 ### Human review is mandatory
 
-recon never:
+Recon never:
 
 * writes to the EHR;
 * marks the patient or chart as correct;

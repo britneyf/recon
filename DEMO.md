@@ -1,8 +1,8 @@
-# recon — Demo Script & Presentation Guide
+# Recon — Demo Script & Presentation Guide
 
 **One-liner (open with this, memorized):**
 > "Ambient AI writes the clinical note. Nobody checks whether the note, the
-> conversation, and the chart still agree. **recon** is the agent that does —
+> conversation, and the chart still agree. **Recon** is the agent that does —
 > and it's tuned to earn a clinician's trust by staying quiet unless something
 > is really wrong."
 
@@ -28,7 +28,7 @@ Open on **"The restraint — clean initiation (record 12)."** Show the note tab.
 > "This is a real ambient encounter. The scribe wrote this note. Looks clean, right?"
 
 Click **Run Audit**. While the trace streams:
-> "recon extracts every claim from the transcript and the note, normalizes them
+> "Recon extracts every claim from the transcript and the note, normalizes them
 > against the chart with RxNorm, reconciles all three sources, then judges each
 > candidate."
 
@@ -80,7 +80,7 @@ Show: **Precision @ surfaced · Benign-suppression rate · Hallucination recall.
 > the real one under noise."
 
 ### [2:50–3:00] Close
-> "recon is the guardrail the ambient-scribe market needs now that everyone's
+> "Recon is the guardrail the ambient-scribe market needs now that everyone's
 > deployed the scribe. It builds on the tool you already sell, and the same engine
 > generalizes to every AI-generated clinical artifact. It **proposes**; the
 > clinician decides. It never writes to the chart."
