@@ -198,7 +198,37 @@ The evaluation harness measures three behaviors:
 | **Benign suppression**       | Does the system remain silent on paraphrases, synonyms, and harmless formatting differences? |
 | **Unsupported-claim recall** | Does it detect clinically meaningful note claims with no support in the transcript or chart? |
 
-<!-- EVAL_RESULTS -->
+### Measured results
+
+One run, 2026-07-18, `claude-opus-4-8`, over five records of the synthetic corpus:
+
+| Metric | Result | Denominator |
+| ------ | ------ | ----------- |
+| Actionable precision | 100% | 5 of 5 surfaced findings were real |
+| Benign suppression | 100% | 1 of 1 benign difference correctly not flagged |
+| Unsupported-claim recall | 100% | 4 of 4 injected hallucinations caught |
+
+| Case | Expected | Result | Cited |
+| ---- | -------- | ------ | ----- |
+| rec10 natural | type C discrepancy | C | yes |
+| rec12 natural | clean | clean | — |
+| rec13 natural | clean | clean | — |
+| rec6 · metformin | catch hallucination | caught | yes |
+| rec10 · warfarin | catch hallucination | caught | yes |
+| rec12 · atorvastatin | catch hallucination | caught | yes |
+| rec12 · cardiology referral | catch hallucination | caught | yes |
+| rec12 · antihypertensive | suppress benign | suppressed | — |
+
+**Read these with their sample size.** The set is five records and eight scored
+cases. A clean sweep here is a positive signal, not a precision guarantee, and
+it is far too small to characterize production behavior.
+
+**The judge is a language model, so results move between runs.** Across
+development, precision ranged roughly 80–100% and hallucination recall roughly
+75–100%. The run above is one observation, not a stable operating point. Rerun
+`python3 -m evals.run` and expect a different table.
+
+Reproduce it with `python3 -m evals.run`.
 
 See `evals/` for the evaluation cases, expected outputs, and scoring implementation.
 
