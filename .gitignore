@@ -1,0 +1,18 @@
+# Secrets — never commit the API key
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Abridge's synthetic dataset — provided for the hackathon, not ours to redistribute.
+# Keep the schema/summary/README (metadata + docs); exclude the record payload.
+data/synthetic-ambient-fhir-25.jsonl
+data/synthetic-ambient-fhir-25.json
+data/index.html
+
+# Cached audits embed transcript/note text from the dataset — excluded for the
+# same reason. Regenerate locally with:  python3 -m recon --build
+recon/cache/

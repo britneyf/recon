@@ -1,0 +1,21 @@
+{
+  "_comment": "Hand-labeled natural discrepancies, labeled by DATA TRUTH. NOTE: the improvement spec (§P0-1) labels record 12 as '1 Critical type-C', but a rigorous read of the data shows record 12 is a clean medication-INITIATION visit (all four medication_labels meds are authoredOn the visit date / is_new_today, and the note explicitly says therapy was 'never started'). There is no pre-visit stale-active span, so the correct label is 'clean'. Labeling it Critical here would score the (correct) system as a miss. The real, data-grounded type-C anchor is record 10.",
+  "records": {
+    "10": {
+      "expected": "discrepancy",
+      "types": ["C"],
+      "entities": ["simvastatin", "metoprolol"],
+      "note": "Longitudinal med list carries simvastatin (duplicate to active atorvastatin) and an old metoprolol 50mg ER dose as active; the visit discontinues both with no FHIR stop resource -> stale chart / duplicate therapy."
+    },
+    "12": {
+      "expected": "clean",
+      "types": [],
+      "note": "Medication initiation visit. The four medication_labels meds are same-day new orders (is_new_today); note says therapy was 'never started'. No stale-active span -> the Guardian should stay silent. (Spec labeled this Critical-C; the data does not support it.)"
+    },
+    "13": {
+      "expected": "clean",
+      "types": [],
+      "note": "Note faithfully documents the cannabis use (DAST-10 scored) and the domestic-abuse disclosure (HARK-2), and the flu vaccine is captured as an Immunization resource. Nothing material to surface."
+    }
+  }
+}

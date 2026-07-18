@@ -1,0 +1,46 @@
+{
+  "_comment": "Known-false (or deliberately benign) spans appended to the note field at eval time. Applied in-memory only; source dataset is never mutated. Each hallucination is something NOT present in that record's transcript or FHIR (verified). The benign case is a faithful paraphrase the system must NOT flag.",
+  "records": {
+    "12": [
+      {
+        "id": "inj12a",
+        "span": "Started atorvastatin 20 mg daily for hyperlipidemia.",
+        "label": "hallucination",
+        "entity": "atorvastatin",
+        "rationale": "No statin in the transcript or chart; hyperlipidemia never discussed."
+      },
+      {
+        "id": "inj12b",
+        "span": "Referred to cardiology for further evaluation.",
+        "label": "hallucination",
+        "entity": "cardiology",
+        "rationale": "No cardiology referral discussed anywhere in the visit."
+      },
+      {
+        "id": "inj12c",
+        "span": "The patient will begin a low-dose antihypertensive regimen.",
+        "label": "benign",
+        "entity": "antihypertensive",
+        "rationale": "Faithful paraphrase of the real plan (lisinopril/amlodipine/HCTZ started today). Must NOT be flagged."
+      }
+    ],
+    "6": [
+      {
+        "id": "inj6a",
+        "span": "Patient counseled to begin metformin.",
+        "label": "hallucination",
+        "entity": "metformin",
+        "rationale": "Metformin is never mentioned in the transcript."
+      }
+    ],
+    "10": [
+      {
+        "id": "inj10a",
+        "span": "Started warfarin 5 mg daily for atrial fibrillation.",
+        "label": "hallucination",
+        "entity": "warfarin",
+        "rationale": "Anticoagulant never discussed; no atrial fibrillation; not in chart. High-risk hallucination."
+      }
+    ]
+  }
+}

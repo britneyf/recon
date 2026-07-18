@@ -1,0 +1,3 @@
+# recon — the pipeline and web app depend only on the Anthropic SDK.
+# The web server (recon/) and eval harness (evals/) use the Python stdlib only.
+anthropic>=0.117
